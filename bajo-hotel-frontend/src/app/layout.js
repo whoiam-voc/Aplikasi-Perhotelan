@@ -17,6 +17,12 @@ export const metadata = {
   description: "Temukan hotel terbaik di Labuan Bajo. Nikmati pemandangan komodo yang eksotis dan pantai pasir putih yang indah.",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="id" className={`${outfit.variable} ${inter.variable} h-full antialiased`}>

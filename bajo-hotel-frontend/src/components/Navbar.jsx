@@ -131,10 +131,10 @@ export default function Navbar() {
   };
 
   return (
-    <header className="absolute top-0 left-0 w-full z-50 bg-transparent px-6 py-4 md:px-8 md:py-5 flex items-center justify-between">
+    <header className="absolute top-0 left-0 w-full z-50 bg-transparent px-4 py-3 sm:px-6 sm:py-4 md:px-8 md:py-5 flex items-center justify-between">
       {/* Sisi Kiri: Logo & Search Bar */}
-      <div className="flex items-center gap-6 md:gap-8">
-        <Link href="/" className="flex items-center tracking-tight font-display text-xl md:text-2xl font-bold select-none transition-transform hover:scale-[1.02]">
+      <div className="flex items-center gap-3 sm:gap-6 md:gap-8">
+        <Link href="/" className="flex items-center tracking-tight font-display text-lg sm:text-xl md:text-2xl font-bold select-none transition-transform hover:scale-[1.02]">
           <span className="text-white">labuan bajo</span>
           <span className="text-yellow-400">.</span>
           <span className="text-white">com</span>
@@ -152,7 +152,7 @@ export default function Navbar() {
       </div>
 
       {/* Sisi Kanan: Navigation Menu & Dropdowns */}
-      <div className="flex items-center gap-4 md:gap-6 font-medium text-sm md:text-base text-white">
+      <div className="flex items-center gap-2 sm:gap-4 md:gap-6 font-medium text-[11px] sm:text-sm md:text-base text-white">
         {user ? (
           <div className="flex items-center gap-3">
             <span className="text-white/85 font-light text-xs md:text-sm bg-white/10 px-3 py-1.5 rounded-full backdrop-blur-sm border border-white/10">
@@ -160,7 +160,7 @@ export default function Navbar() {
             </span>
             <button
               onClick={handleLogout}
-              className="hover:text-red-300 text-white/95 transition-colors py-1.5 text-xs md:text-sm font-bold"
+              className="hover:text-red-300 text-white/95 transition-colors py-1.5 text-[11px] sm:text-xs md:text-sm font-bold"
             >
               {t("navLogout")}
             </button>
@@ -174,7 +174,7 @@ export default function Navbar() {
                 setAuthError("");
                 setAuthSuccess("");
               }}
-              className="hover:text-blue-200 transition-colors py-1.5 cursor-pointer text-xs md:text-sm"
+              className="hover:text-blue-200 transition-colors py-1 sm:py-1.5 cursor-pointer text-[11px] sm:text-xs md:text-sm"
             >
               {t("navLogin")}
             </button>
@@ -185,7 +185,7 @@ export default function Navbar() {
                 setAuthError("");
                 setAuthSuccess("");
               }}
-              className="bg-blue-600 hover:bg-blue-500 active:scale-95 text-white px-4 py-1.5 rounded-md font-semibold shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transition-all duration-200 cursor-pointer text-xs md:text-sm"
+              className="bg-blue-600 hover:bg-blue-500 active:scale-95 text-white px-2.5 py-1 sm:px-4 sm:py-1.5 rounded-md font-semibold shadow-lg shadow-blue-500/20 hover:shadow-blue-500/30 transition-all duration-200 cursor-pointer text-[11px] sm:text-xs md:text-sm"
             >
               {t("navRegister")}
             </button>
