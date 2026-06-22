@@ -818,8 +818,7 @@ export default function AddonModal({ isOpen, onClose, type, data, onSuccess }) {
                       <input
                         type="date"
                         value={startDate}
-                        min={selectedBooking ? selectedBooking.checkInDate.split("T")[0] : ""}
-                        max={selectedBooking ? selectedBooking.checkOutDate.split("T")[0] : ""}
+                        min={new Date().toISOString().split("T")[0]}
                         onChange={(e) => {
                           setStartDate(e.target.value);
                           if (e.target.value >= endDate) {
@@ -837,7 +836,6 @@ export default function AddonModal({ isOpen, onClose, type, data, onSuccess }) {
                         type="date"
                         value={endDate}
                         min={startDate}
-                        max={selectedBooking ? selectedBooking.checkOutDate.split("T")[0] : ""}
                         onChange={(e) => setEndDate(e.target.value)}
                         className="w-full bg-slate-800 border border-slate-700 rounded-xl py-2 px-3 text-slate-200 outline-none focus:border-blue-500 text-sm cursor-pointer"
                       />
