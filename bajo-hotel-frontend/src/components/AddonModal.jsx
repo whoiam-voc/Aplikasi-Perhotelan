@@ -484,7 +484,7 @@ export default function AddonModal({ isOpen, onClose, type, data, onSuccess }) {
       body = {
         tourGuideId: data.id,
         totalHours: hours,
-        note
+        note: `Tanggal Tour: ${startDate || "Sesuai Check-in"} | Catatan: ${note || "-"}`
       };
     } else if (type === "shuttle") {
       if (!shuttleOption) {
@@ -862,6 +862,19 @@ export default function AddonModal({ isOpen, onClose, type, data, onSuccess }) {
                       </select>
                     </div>
                     <div className="space-y-1">
+                      <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider block">
+                        {language === "ENG" ? "Tour Date" : "Tanggal Tour"}
+                      </label>
+                      <input
+                        type="date"
+                        value={startDate}
+                        min={selectedBooking ? selectedBooking.checkInDate.split("T")[0] : ""}
+                        max={selectedBooking ? selectedBooking.checkOutDate.split("T")[0] : ""}
+                        onChange={(e) => setStartDate(e.target.value)}
+                        className="w-full bg-slate-800 border border-slate-700 rounded-xl py-2 px-3 text-slate-200 outline-none focus:border-blue-500 text-sm cursor-pointer"
+                      />
+                    </div>
+                    <div className="space-y-1 col-span-2">
                       <label className="text-xs font-semibold text-slate-400 uppercase tracking-wider block">
                         {t("addonModalNote")}
                       </label>
