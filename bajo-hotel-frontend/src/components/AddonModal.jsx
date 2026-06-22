@@ -96,7 +96,7 @@ export default function AddonModal({ isOpen, onClose, type, data, onSuccess }) {
 
       // Fetch user bookings
       setLoadingBookings(true);
-      fetch("http://localhost:5000/api/v1/bookings", {
+      fetch("${process.env.NEXT_PUBLIC_API_URL}/api/v1/bookings", {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -136,7 +136,7 @@ export default function AddonModal({ isOpen, onClose, type, data, onSuccess }) {
     if (selectedBooking && type === "shuttle") {
       const hotelId = selectedBooking.room?.hotel?.id;
       if (hotelId) {
-        fetch(`http://localhost:5000/api/v1/extras/shuttle-services`)
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/extras/shuttle-services`)
           .then(res => res.json())
           .then(result => {
             if (result.success && Array.isArray(result.data)) {
@@ -472,7 +472,7 @@ export default function AddonModal({ isOpen, onClose, type, data, onSuccess }) {
     let body = {};
 
     if (type === "vehicle") {
-      endpoint = `http://localhost:5000/api/v1/extras/bookings/${selectedBookingId}/vehicles`;
+      endpoint = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/extras/bookings/${selectedBookingId}/vehicles`;
       body = {
         vehicleId: data.id,
         totalDays,
@@ -480,7 +480,7 @@ export default function AddonModal({ isOpen, onClose, type, data, onSuccess }) {
         endDate
       };
     } else if (type === "tourGuide") {
-      endpoint = `http://localhost:5000/api/v1/extras/bookings/${selectedBookingId}/tour-guides`;
+      endpoint = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/extras/bookings/${selectedBookingId}/tour-guides`;
       body = {
         tourGuideId: data.id,
         totalHours: hours,
@@ -492,7 +492,7 @@ export default function AddonModal({ isOpen, onClose, type, data, onSuccess }) {
         setSubmitting(false);
         return;
       }
-      endpoint = `http://localhost:5000/api/v1/extras/bookings/${selectedBookingId}/shuttle`;
+      endpoint = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/extras/bookings/${selectedBookingId}/shuttle`;
       body = {
         shuttleServiceId: shuttleOption.id
       };

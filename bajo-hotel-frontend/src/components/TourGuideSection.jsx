@@ -11,7 +11,7 @@ export default function TourGuideSection({ onBook }) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/v1/extras/tour-guides")
+    fetch("${process.env.NEXT_PUBLIC_API_URL}/api/v1/extras/tour-guides")
       .then((res) => {
         if (!res.ok) throw new Error("Gagal mengambil data pemandu wisata");
         return res.json();

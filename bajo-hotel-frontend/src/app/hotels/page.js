@@ -130,7 +130,7 @@ function HotelSearchResults() {
   const fetchAvailability = () => {
     setLoading(true);
     setError(null);
-    const url = `http://localhost:5000/api/v1/rooms/availability?checkIn=${finalCheckIn}&checkOut=${finalCheckOut}&guests=${guests}&search=${encodeURIComponent(search)}`;
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/rooms/availability?checkIn=${finalCheckIn}&checkOut=${finalCheckOut}&guests=${guests}&search=${encodeURIComponent(search)}`;
 
     fetch(url)
       .then((res) => {
@@ -228,7 +228,7 @@ function HotelSearchResults() {
     try {
       let lastResultData = null;
       for (let i = 0; i < modalRooms; i++) {
-        const res = await fetch("http://localhost:5000/api/v1/bookings", {
+        const res = await fetch("${process.env.NEXT_PUBLIC_API_URL}/api/v1/bookings", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -256,7 +256,7 @@ function HotelSearchResults() {
 
         // Update booking status to PAID on backend
         const bookingId = result.data.id;
-        const statusRes = await fetch(`http://localhost:5000/api/v1/bookings/${bookingId}/status`, {
+        const statusRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/bookings/${bookingId}/status`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
