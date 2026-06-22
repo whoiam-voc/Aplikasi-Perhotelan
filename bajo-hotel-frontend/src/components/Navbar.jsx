@@ -81,7 +81,7 @@ export default function Navbar() {
 
     try {
       if (authModalMode === "login") {
-        const res = await fetch("${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/login", {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/login`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email, password }),
@@ -101,7 +101,7 @@ export default function Navbar() {
         // Dispatch global auth change event
         window.dispatchEvent(new Event("auth-change"));
       } else {
-        const res = await fetch("${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/register", {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/auth/register`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ fullName, email, password, phone }),

@@ -13,7 +13,7 @@ export default function VehicleRentalSection({ onBook }) {
   const [filterType, setFilterType] = useState("ALL"); // "ALL" | "MOTOR" | "MOBIL"
 
   useEffect(() => {
-    fetch("${process.env.NEXT_PUBLIC_API_URL}/api/v1/extras/vehicles")
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/extras/vehicles`)
       .then((res) => {
         if (!res.ok) throw new Error("Gagal mengambil data kendaraan");
         return res.json();

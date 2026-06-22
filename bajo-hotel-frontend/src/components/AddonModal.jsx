@@ -96,7 +96,7 @@ export default function AddonModal({ isOpen, onClose, type, data, onSuccess }) {
 
       // Fetch user bookings
       setLoadingBookings(true);
-      fetch("${process.env.NEXT_PUBLIC_API_URL}/api/v1/bookings", {
+      fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/bookings`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
