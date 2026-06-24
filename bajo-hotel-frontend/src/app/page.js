@@ -61,9 +61,9 @@ export default function Home() {
 
       {/* Hero Section */}
       <div className="relative w-full min-h-screen flex flex-col justify-center items-center">
-        {/* Background Image overlay - limited to Hero, set to z-0 and bg-right */}
+        {/* Background Image overlay - limited to Hero, set to z-0 and responsive positioning */}
         <div
-          className="absolute inset-0 bg-cover bg-right z-0"
+          className="absolute inset-0 bg-cover bg-center lg:bg-right z-0"
           style={{
             backgroundImage: `url('https://asset.kompas.com/crops/uVCLNqwvzBhqC1r_xEfYqKcsP7s=/50x0:1000x633/1200x800/data/photo/2020/11/06/5fa4e37d84b13.jpg')`,
           }}
